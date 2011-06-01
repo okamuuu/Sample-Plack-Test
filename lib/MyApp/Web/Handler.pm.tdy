@@ -1,0 +1,29 @@
+package MyApp::Web::Handler;
+use strict;
+use warnings;
+use Plack::Request;
+
+sub app {
+    return sub {
+        my $env = shift;
+
+        my $request  = Plack::Request->new($env);
+        my $response = $request->new_response(200);
+
+        $response->body("hello, I'm okamuuu. Thank you!!");
+
+        return $response->finalize();
+
+=pod
+        [
+            200,
+            [ "Content-Type" => "text/plain", "Content-Length" => 31 ],
+            ["hello, I'm okamuuu. Thank you!!"]
+        ];
+      };
+=cut
+
+      }
+
+      1;
+
